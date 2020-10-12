@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
+
+<style type="text/css">
+		.top-bar{
+			height:70px;
+			top:0;
+			position: sticky;
+			background: #fff;
+			margin-bottom: 20px;
+			border-bottom: 3px solid orange;
+			z-index: 2; 
+		}
+		.logo{
+			height: 60px;
+			margin: 5px 10px;
+		}
+		.form-control{
+			margin-top: 9px;
+			margin-left: 30px;
+			border: 1px solid orange !important;
+			border-top-left-radius: 20px !important;
+			border-bottom-left-radius: 20px !important;
+			border-top-right-radius: 0px !important;
+			border-bottom-right-radius: 0px !important;
+			box-shadow: none;
+		}
+		.input-group-text{
+			background: orange;
+			border: 1px solid orange !important;
+			margin: 9px 10px 23px 0px !important;
+			border-top-left-radius: 0px !important;
+			border-bottom-left-radius: 0px !important;
+			border-top-right-radius: 20px !important;
+			border-bottom-right-radius: 20px !important;
+			cursor: pointer;
+		}
+		.search-box{
+			display: inline-flex;
+			width: 60%;
+
+
+		}
+		.fa-search{
+			color: white;
+		}
+		.menu-bar{
+			width: 40%;
+			height: 70px;
+			float: right;
+		}
+		.menu-bar ul{
+			display: inline-flex;
+			float: right;
+		}
+		.menu-bar ul li{
+			border-left: 1px solid white;
+			list-style-type: none;
+			padding: 21.5px 25px;
+			background-color: orange;
+			text-align: center;
+			cursor: pointer;
+		}
+		.menu-bar ul li a{
+			font-size: 16px;
+			font-weight: bold;
+			color: #fff;
+			text-decoration: none;
+		}	
+		.fa-shopping-cart, .fa-phone-square, .fa-user-plus, .fa-user-circle, .fa-info-circle{
+			margin-right: 7px;
+		}
+
+
+
+.shop-item {
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  max-width: 150px;
+  max-height: 250px;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  text-align: center;
+  font-family: arial;
+  background-color: rgba(0, 0, 0, 0.1);
+  display: inline-table;
+}
+
+.shop-item-title {
+    
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.shop-item-image {
+    height: 250px;
+}
+
+.shop-item-details {
+    
+    align-items: center;
+    padding: 5px;
+}
+
+.shop-item-price {
+    color: grey;
+  font-size: 16px;
+  text-align: center;
+  display: block;
+}
+
+.shop-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.shop-item-button {
+  border: none;
+  outline: none!important;
+  padding: 8px;
+  color: white;
+  background-color: orange;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+.shop-item-button:hover {
+ 	opacity: 0.7;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.cart-header {
+    font-weight: bold;
+    font-size: 1.25em;
+    color: #333;
+}
+
+.cart-column {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid black;
+    margin-right: 1.5em;
+    padding-bottom: 10px;
+    margin-top: 10px;
+}
+
+.cart-row {
+    display: flex;
+}
+
+.cart-item {
+    width: 45%;
+}
+
+.cart-price {
+    width: 20%;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.cart-quantity {
+    width: 35%;
+}
+
+.cart-item-title {
+    color: #333;
+    margin-left: .5em;
+    font-size: 1.2em;
+}
+
+.cart-item-image {
+    width: 75px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.btn-danger {
+    color: white;
+    background-color: #EB5757;
+    border: none;
+    border-radius: .3em;
+    font-weight: bold;
+}
+
+.btn-danger:hover {
+  opacity: 0.7;
+}
+
+.cart-quantity-input {
+    height: 34px;
+    width: 50px;
+    border-radius: 5px;
+    border: 1px solid #56CCF2;
+    background-color: #eee;
+    color: #333;
+    padding: 0;
+    text-align: center;
+    font-size: 1.2em;
+    margin-right: 25px;
+}
+
+.cart-row:last-child {
+    border-bottom: 1px solid black;
+}
+
+.cart-row:last-child .cart-column {
+    border: none;
+}
+
+.cart-total {
+    text-align: end;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.cart-total-title {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: black;
+    margin-right: 40px;
+}
+
+.cart-total-price {
+    color: #333;
+    font-size: 1.1em;
+}
+
+.btn-purchase {
+    display: block;
+    margin: 40px auto 80px auto;
+    font-size: 1.75em;
+    background-color: orange !important;
+    outline: none !important;
+    border: none;
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+}
+.btn-purchase:hover{
+	opacity: 0.7;
+}
+
+
+
+
+
+
+.container-1 input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+.container-1 input[type=submit] {
+  background-color: orange;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.container-1 input[type=submit]:hover {
+  opacity: 0.7;
+}
+
+/* Style the container/contact section */
+.container-1 {
+  border-radius: 5px;
+  background-color: rgba(0,0,0,0.1);
+  padding: 10px;
+  margin: 40px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* Create two columns that float next to eachother */
+.column-1 {
+  float: left;
+  width: 50%;
+  margin-top: 6px;
+  padding: 20px;
+}
+
+/* Clear floats after the columns */
+.row-1:after {
+  content: "";
+  display: table;
+  clear: both;
+  background-color: rgba(0,0,0,0.1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.site-footer
+{
+  background-color: rgba(0,0,0,0.1);
+  padding:45px 0 20px;
+  font-size:15px;
+  line-height:24px;
+  color:black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+}
+
+.site-footer hr.small
+{
+  margin:20px 0
+}
+
+.site-footer a:hover
+{
+  color:#3366cc;
+  text-decoration:none;
+}
+.footer-links
+{
+  padding-left:0;
+  list-style:none
+}
+.footer-links li
+{
+  display:block
+}
+.footer-links a
+{
+  color:#737373
+}
+
+.footer-links.inline li
+{
+  display:inline-block
+}
+
+.copyright-text
+{
+  margin:0
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+
+</head>
+<body>
+	<div class="top-bar">
+		<div class="search-box">
+			<a href="index.html"><img src="images/mainlogo.jpg" class="logo"></a>
+			<input type="text" name="" class="form-control">
+			<span class="input-group-text"><i class="fa fa-search" aria-hidden="true"></i></span>
+		</div>
+		<div class="menu-bar">
+			<ul>
+				<li><a href="#cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Cart</a></li>
+				<li><a href="login.html" target="popup" onclick="window.open('login.html','name','width=1000,height=600')"><i class="fa fa-user-circle" aria-hidden="true"></i>Login</a></li>
+				<li><a href="#contact"><i class="fa fa-phone-square" aria-hidden="true"></i>Contact</a></li>
+				<li><a href="#footer"><i class="fa fa-info-circle" aria-hidden="true"></i>About</a></li>
+			</ul>			
+		</div>
+	</div>
+
+
+
+
+
+
+
+<div class="w3-content w3-section" style="max-width:1200px;box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.4);margin :50px;background-color: rgba(0,0,0,0.1); padding: 80px; ">
+  <a href="#fruits"><img class="mySlides" src="images/fruit.jpg" style="width:100%;"></a>
+  <a href="#vegetables"><img class="mySlides" src="images/veg.jpg" style="width:100%"></a>
+  
+</div>
+
+
+
+<section class="container content-section" >
+			<img src="images/fruitlogo.jpg" style="height: 100px;width:150px;margin-bottom: 10px; margin-left: -100px">
+			<span  id="fruits" style="font-size: 50px;color: orange;font-family: Comic Sans MS;font-weight: bold;">Fresh Fruits</span>
+            <div class="shop-items">
+                <div class="shop-item"> 
+                    <img class="shop-item-image" src="Images/1.jpg">
+                    <div class="shop-item-details">
+                    	<span class="shop-item-title">Apple</span>
+                        <span class="shop-item-price">$19.99</span>
+                        <button class="shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item"> 
+                    <img class="shop-item-image" src="Images/2.jpg">
+                    <div class="shop-item-details">
+                    	<span class="shop-item-title">Mango</span>
+                        <span class="shop-item-price">$19.99</span>
+                        <button class="shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item"> 
+                    <img class="shop-item-image" src="Images/3.jpg">
+                    <div class="shop-item-details">
+                    	<span class="shop-item-title">Green Grapes</span>
+                        <span class="shop-item-price">$19.99</span>
+                        <button class="shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item"> 
+                    <img class="shop-item-image" src="Images/4.jpg">
+                    <div class="shop-item-details">
+                    	<span class="shop-item-title">Red Grapes</span>
+                        <span class="shop-item-price">$19.99</span>
+                        <button class="shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item"> 
+                    <img class="shop-item-image" src="Images/5.jpg">
+                    <div class="shop-item-details">
+                    	<span class="shop-item-title">Litchee</span>
+                        <span class="shop-item-price">$19.99</span>
+                        <button class="shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item"> 
+                    <img class="shop-item-image" src="Images/6.jpg">
+                    <div class="shop-item-details">
+                    	<span class="shop-item-title">Pineapple</span>
+                        <span class="shop-item-price">$19.99</span>
+                        <button class="shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item"> 
+                    <img class="shop-item-image" src="Images/7.jpg">
+                    <div class="shop-item-details">
+                    	<span class="shop-item-title">Watermelon</span>
+                        <span class="shop-item-price">$19.99</span>
+                        <button class="shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item"> 
+                    <img class="shop-item-image" src="Images/8.jpg">
+                    <div class="shop-item-details">
+                    	<span class="shop-item-title">Papaya</span>
+                        <span class="shop-item-price">$19.99/kg</span>
+                        <button class="shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item"> 
+                    <img class="shop-item-image" src="Images/9.jpg">
+                    <div class="shop-item-details">
+                    	<span class="shop-item-title">Strawberry</span>
+                        <span class="shop-item-price">$19.99</span>
+                        <button class="shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item"> 
+                    <img class="shop-item-image" src="Images/10.jpg">
+                    <div class="shop-item-details">
+                    	<span class="shop-item-title">Orange</span>
+                        <span class="shop-item-price">$19.99</span>
+                        <button class="shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item"> 
+                    <img class="shop-item-image" src="Images/11.jpg">
+                    <div class="shop-item-details">
+                    	<span class="shop-item-title">Banana</span>
+                        <span class="shop-item-price">$19.99</span>
+                        <button class="shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item"> 
+                    <img class="shop-item-image" src="Images/12.jpg">
+                    <div class="shop-item-details">
+                    	<span class="shop-item-title">Pomegranate</span>
+                        <span class="shop-item-price">$19.99</span>
+                        <button class="shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item"> 
+                    <img class="shop-item-image" src="Images/28.jpg">
+                    <div class="shop-item-details">
+                    	<span class="shop-item-title">Kiwi</span>
+                        <span class="shop-item-price">$19.99</span>
+                        <button class="shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item"> 
+                    <img class="shop-item-image" src="Images/29.jpg">
+                    <div class="shop-item-details">
+                    	<span class="shop-item-title">Guava</span>
+                        <span class="shop-item-price">$19.99</span>
+                        <button class="shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item"> 
+                    <img class="shop-item-image" src="Images/30.jpg">
+                    <div class="shop-item-details">
+                    	<span class="shop-item-title">Blueberry</span>
+                        <span class="shop-item-price">$19.99</span>
+                        <button class="shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item"> 
+                    <img class="shop-item-image" src="Images/31.jpg">
+                    <div class="shop-item-details">
+                    	<span class="shop-item-title">Plum</span>
+                        <span class="shop-item-price">$19.99</span>
+                        <button class="shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+
+
+
+
+<section class="container content-section" id="vegetables">
+			<img src="images/Veglogo.jpg" style="height: 150px;width:200px; margin-left: -100px;margin-bottom: 10px;margin-top: 10px;">
+			<span style="font-size: 50px;color: green;font-family: Comic Sans MS;font-weight: bold;">Fresh Vegetables</span>
+            <div class="shop-items">
+                <div class="shop-item"> 
+                    <img class="shop-item-image" src="Images/13.jpg">
+                    <div class="shop-item-details">
+                    	<span class="shop-item-title">Pumpkin</span>
+                        <span class="shop-item-price">$19.99</span>
+                        <button class="shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item"> 
+                    <img class="shop-item-image" src="Images/14.jpg">
+                    <div class="shop-item-details">
+                    	<span class="shop-item-title">Pea</span>
+                        <span class="shop-item-price">$19.99</span>
+                        <button class="shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item"> 
+                    <img class="shop-item-image" src="Images/15.jpg">
+                    <div class="shop-item-details">
+                    	<span class="shop-item-title">Tomato</span>
+                        <span class="shop-item-price">$19.99</span>
+                        <button class="shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item"> 
+                    <img class="shop-item-image" src="Images/16.jpg">
+                    <div class="shop-item-details">
+                    	<span class="shop-item-title">Onion</span>
+                        <span class="shop-item-price">$19.99</span>
+                        <button class="shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item"> 
+                    <img class="shop-item-image" src="Images/17.jpg">
+                    <div class="shop-item-details">
+                    	<span class="shop-item-title">Carrot</span>
+                        <span class="shop-item-price">$19.99</span>
+                        <button class="shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item"> 
+                    <img class="shop-item-image" src="Images/18.jpg">
+                    <div class="shop-item-details">
+                    	<span class="shop-item-title">Bittergourd</span>
+                        <span class="shop-item-price">$19.99</span>
+                        <button class="shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item"> 
+                    <img class="shop-item-image" src="Images/19.jpg">
+                    <div class="shop-item-details">
+                    	<span class="shop-item-title">Bottle Gourd</span>
+                        <span class="shop-item-price">$19.99</span>
+                        <button class="shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item"> 
+                    <img class="shop-item-image" src="Images/20.jpg">
+                    <div class="shop-item-details">
+                    	<span class="shop-item-title">Cucumber</span>
+                        <span class="shop-item-price">$19.99/kg</span>
+                        <button class="shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item"> 
+                    <img class="shop-item-image" src="Images/21.jpg">
+                    <div class="shop-item-details">
+                    	<span class="shop-item-title">Spinach</span>
+                        <span class="shop-item-price">$19.99</span>
+                        <button class="shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item"> 
+                    <img class="shop-item-image" src="Images/22.jpg">
+                    <div class="shop-item-details">
+                    	<span class="shop-item-title">Cabbage</span>
+                        <span class="shop-item-price">$19.99</span>
+                        <button class="shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item"> 
+                    <img class="shop-item-image" src="Images/23.jpg">
+                    <div class="shop-item-details">
+                    	<span class="shop-item-title">Cauliflower</span>
+                        <span class="shop-item-price">$19.99</span>
+                        <button class="shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item"> 
+                    <img class="shop-item-image" src="Images/24.jpg">
+                    <div class="shop-item-details">
+                    	<span class="shop-item-title">Broccoli</span>
+                        <span class="shop-item-price">$19.99</span>
+                        <button class="shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item"> 
+                    <img class="shop-item-image" src="Images/25.jpg">
+                    <div class="shop-item-details">
+                    	<span class="shop-item-title">Beans</span>
+                        <span class="shop-item-price">$19.99</span>
+                        <button class="shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item"> 
+                    <img class="shop-item-image" src="Images/26.jpg">
+                    <div class="shop-item-details">
+                    	<span class="shop-item-title">Brinjal</span>
+                        <span class="shop-item-price">$19.99</span>
+                        <button class="shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item"> 
+                    <img class="shop-item-image" src="Images/27.jpg">
+                    <div class="shop-item-details">
+                    	<span class="shop-item-title">Ladies'Finger</span>
+                        <span class="shop-item-price">$19.99</span>
+                        <button class="shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item"> 
+                    <img class="shop-item-image" src="Images/32.jpg">
+                    <div class="shop-item-details">
+                    	<span class="shop-item-title">Raddish</span>
+                        <span class="shop-item-price">$19.99</span>
+                        <button class="shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+
+
+<section id="cart" class="container content-section" style="background-color: rgba(0, 0, 0, 0.1);margin-top: 30px;padding-top: 20px;padding-bottom:5px;margin-bottom: 20px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);">
+            <h2  class="section-header" style="margin-top: 30px;font-size: 50px;color: black;font-family: Comic Sans MS;font-weight: bold;"><i class="fa fa-shopping-cart" aria-hidden="true" ></i><span style="margin-left: 20px; " >CART</span></h2>
+            <div class="cart-row">
+                <span class="cart-item cart-header cart-column">Item</span>
+                <span class="cart-price cart-header cart-column">Price</span>
+                <span class="cart-quantity cart-header cart-column">Quantity</span>
+            </div>
+            <div class="cart-items">
+            </div>
+            <div class="cart-total">
+                <strong class="cart-total-title">Total</strong>
+                <span class="cart-total-price">$0</span>
+            </div>
+            <button class=" btn-purchase" type="button">Place Order</button>
+    </section>
+
+
+
+
+
+
+
+
+<div id="contact" class="container-1">
+  <div style="text-align:center">
+    <h2>Contact Us</h2>
+  </div>
+  <div class="row-1">
+    <div class="column-1">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.8864164096444!2d85.36081641456495!3d27.689905232866234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1a240b3d9c41%3A0xc4bcc428fa8eaf77!2sUjjwal%20Kuikel!5e0!3m2!1sen!2snp!4v1602166377637!5m2!1sen!2snp" width="600" height="584" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    </div>
+    <div class="column-1">
+      <form action="">
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" name="firstname" placeholder="Your name..">
+        <label for="lname">Last Name</label>
+        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+        <label for="address">Address</label>
+         <input type="text" id="address" name="address" placeholder="Your address..">
+        <label for="subject">Subject</label>
+        <textarea id="subject" name="subject" placeholder="Write something.." style="height:170px"></textarea>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<footer class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-6">
+            <h6>About</h6>
+            <p class="text-justify">The Fresh Fruit and Vegetable is a new way of getting fresh and organic fruits and vegetables with a few clicks to your doorsteps. We will take your orders and deliver it as early as possible. Happy Shopping!<br>Thank you!</p>
+          </div>
+
+       
+
+          <div class="col-xs-6 col-md-3" id="footer">
+            <h6>Quick Links</h6>
+            <ul class="footer-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="#fruits">Shop-Fruits</a></li>
+              <li><a href="#vegetables">Shop-Vegetables</a></li>
+              <li><a href="login.html" target="popup" onclick="window.open('login.html','name','width=1000,height=600')">Login</a></li>
+              <li><a href="#contact">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+        <hr>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-sm-6 col-xs-12">
+            <p class="copyright-text">Copyright &copy; 2020 All Rights Reserved by 
+         <a href="#">Ujjwal Kuikel</a> & <a href="#">Karuna Sagar</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="">
+
+
+
+
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	if (document.readyState == 'loading') {
+    document.addEventListener('DOMContentLoaded', ready)
+} else {
+    ready()
+}
+
+function ready() {
+    var removeCartItemButtons = document.getElementsByClassName('btn-danger')
+    for (var i = 0; i < removeCartItemButtons.length; i++) {
+        var button = removeCartItemButtons[i]
+        button.addEventListener('click', removeCartItem)
+    }
+
+    var quantityInputs = document.getElementsByClassName('cart-quantity-input')
+    for (var i = 0; i < quantityInputs.length; i++) {
+        var input = quantityInputs[i]
+        input.addEventListener('change', quantityChanged)
+    }
+
+    var addToCartButtons = document.getElementsByClassName('shop-item-button')
+    for (var i = 0; i < addToCartButtons.length; i++) {
+        var button = addToCartButtons[i]
+        button.addEventListener('click', addToCartClicked)
+    }
+
+    document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)
+}
+
+function purchaseClicked() {
+    alert('Your order has been placed. Thank you for choosing us.')
+    var cartItems = document.getElementsByClassName('cart-items')[0]
+    while (cartItems.hasChildNodes()) {
+        cartItems.removeChild(cartItems.firstChild)
+    }
+    updateCartTotal()
+}
+
+function removeCartItem(event) {
+    var buttonClicked = event.target
+    buttonClicked.parentElement.parentElement.remove()
+    updateCartTotal()
+}
+
+function quantityChanged(event) {
+    var input = event.target
+    if (isNaN(input.value) || input.value <= 0) {
+        input.value = 1
+    }
+    updateCartTotal()
+}
+
+function addToCartClicked(event) {
+    var button = event.target
+    var shopItem = button.parentElement.parentElement
+    var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText
+    var price = shopItem.getElementsByClassName('shop-item-price')[0].innerText
+    var imageSrc = shopItem.getElementsByClassName('shop-item-image')[0].src
+    addItemToCart(title, price, imageSrc)
+    updateCartTotal()
+}
+
+function addItemToCart(title, price, imageSrc) {
+    var cartRow = document.createElement('div')
+    cartRow.classList.add('cart-row')
+    var cartItems = document.getElementsByClassName('cart-items')[0]
+    var cartItemNames = cartItems.getElementsByClassName('cart-item-title')
+    for (var i = 0; i < cartItemNames.length; i++) {
+        if (cartItemNames[i].innerText == title) {
+            alert('This item is already added to the cart')
+            return
+        }
+    }
+    var cartRowContents = `
+        <div class="cart-item cart-column">
+            <img class="cart-item-image" src="${imageSrc}" width="100" height="100">
+            <span class="cart-item-title">${title}</span>
+        </div>
+        <span class="cart-price cart-column">${price}</span>
+        <div class="cart-quantity cart-column">
+            <input class="cart-quantity-input" type="number" value="1">
+            <button class="btn btn-danger" type="button">REMOVE</button>
+        </div>`
+    cartRow.innerHTML = cartRowContents
+    cartItems.append(cartRow)
+    cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem)
+    cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged)
+}
+
+function updateCartTotal() {
+    var cartItemContainer = document.getElementsByClassName('cart-items')[0]
+    var cartRows = cartItemContainer.getElementsByClassName('cart-row')
+    var total = 0
+    for (var i = 0; i < cartRows.length; i++) {
+        var cartRow = cartRows[i]
+        var priceElement = cartRow.getElementsByClassName('cart-price')[0]
+        var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
+        var price = parseFloat(priceElement.innerText.replace('$', ''))
+        var quantity = quantityElement.value
+        total = total + (price * quantity)
+    }
+    total = Math.round(total * 100) / 100
+    document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total
+}
+
+</script>
+</body>
+</html>
